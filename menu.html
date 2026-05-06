@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Koda | Web cafe</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+     
+    <!------ Navbar ------>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo-k-azul.png"></a>
+            </div>
+            <nav>
+                <ul id="NavItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="menu-icon" onclick="menutoggle()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------ Favorito ------>
+
+    <div class="container">
+        <div class="fav-background">
+            <img class="background-img" src="assets/home-background.jpg">
+            <a href=""><img class="fav-matcha-img" src="assets/fav-matcha.png"></a>
+            <div class="fav-text">
+                <h1>O QUERIDINHO <br> DA GALERA</h1>
+                <h2>MATCHA LATTE</h2>
+                <a href="" class="btn">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+    <!------ Cardápio ------>
+
+
+    <!------ Footer ------>
+    <div class="footer">
+        <div class="logo-footer">
+            <a href="index.html"><img src="assets/logo-k.png"></a>
+        </div>
+        <div class="footer-content">
+            <h2>KODA CAFE</h2>
+            <hr>
+            <p class="copyright">© 2026 Koda Cafe. Marina Faraco — All rights reserved.</p>
+        </div>
+    </div>
+
+<!------ JS For Toggle Menu ------>
+
+    <script>
+        var NavItems = document.getElementById("NavItems");
+
+        function menutoggle() {
+            if (NavItems.style.maxHeight == "0px") {
+                NavItems.style.maxHeight = "200px";
+            } else {
+                NavItems.style.maxHeight = "0px";
+            }
+        }
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 800) {
+                NavItems.style.maxHeight = "";
+            }
+        });  
+    </script>
+
+</body>
+</html>

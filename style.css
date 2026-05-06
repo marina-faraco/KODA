@@ -305,13 +305,14 @@ a {
         position: absolute;
         top: 50px;
         left: 0;
-        background: #FF3131;
+        background: #327487;
         width: 100%;
         overflow: hidden;
         transition: max-height 0.5s;
         flex-direction: column;
         gap: 0;
         max-height: 0px;
+        z-index: 100;
     }
 
     nav ul li {
@@ -513,4 +514,66 @@ a {
     }
 }
 
-/* ------ Media Query - Footer ------ */
+/* ------ MENU PAGE ------ */
+
+.fav-background {
+    background: #FF3131;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+}
+
+.container .background-img {
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+
+.fav-matcha-img {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: auto;
+}
+
+.fav-text {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.fav-text h1 {
+    font-size: 90px;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.fav-text h2 {
+    font-size: 50px;
+    font-style: italic;
+    color: #FF3131;
+    margin: 0 200px;
+}
+
+.fav-text .btn {
+    background: #327487;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: clamp(10px, 1.5vw, 16px);
+}
+
+.fav-text .btn:hover {
+    background: #2794B3;
+    transition: background 0.3s ease;
+}
+
+.fav-matcha-img:hover {
+    transform:  translateY(-50%) scale(1.1);
+    transition: transform 0.3s ease;
+}
