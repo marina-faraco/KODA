@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Koda | Web cafe</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+     
+    <!------ Navbar ------>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo-k-azul.png"></a>
+            </div>
+            <nav>
+                <ul id="NavItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="menu-icon" onclick="menutoggle()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------ Quadro - Cafés (desktop e tablet) ------>
+    <div class="container">
+        <div class="background">
+            <img class="background-img" src="assets/home-background.jpg">
+            <img src="assets/logo.png" class="logo-background">
+            <div class="row">
+                <div class="col-1">
+                    <a class="iced" href=""><img src="assets/ice-coffee-person.png"></a>
+                    <div class="hover-text">Iced Coffee</div>
+                </div>
+                <div class="col-1">
+                    <a class="matcha" href=""><img src="assets/matcha-person.png"></a>
+                    <div class="hover-text">Matcha</div>
+                </div>
+                <div class="col-1">
+                    <a class="caramel" href=""><img src="assets/caramel-person.png"></a>
+                    <div class="hover-text">Caramel Latte</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------ Quadro - Cafés (mobile) ------>
+    <div class="mobile-section">
+        <div class="mobile-background">
+            <img class="background-img" src="assets/home-background.jpg">
+            <img src="assets/logo.png" class="logo-background">
+        </div>
+        <div class="mobile-cards">
+            <div class="mobile-card">
+                <a class="iced" href=""><img src="assets/ice-coffee-person.png"></a>
+                <div class="mobile-card-info">
+                    <div class="mobile-card-text">
+                        <p>Iced Coffee</p>
+                    </div>
+                    <a href="" class="mobile-btn">Saiba mais</a>
+                </div>
+            </div>
+            <div class="mobile-card">
+                <a class="matcha" href=""><img src="assets/matcha-person.png"></a>
+                <div class="mobile-card-info">
+                    <div class="mobile-card-text">
+                        <p>Matcha</p>
+                    </div>
+                    <a href="" class="mobile-btn">Saiba mais</a>
+                </div>
+            </div>
+            <div class="mobile-card">
+                <a class="caramel" href=""><img src="assets/caramel-person.png"></a>
+                <div class="mobile-card-info">
+                    <div class="mobile-card-text">
+                        <p>Caramel Latte</p>
+                    </div>
+                    <a href="" class="mobile-btn">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------ Quadro - NOVO ------>
+    <div class="new-container">
+        <div class="container-backgorund">
+            <div class="col-2">
+                <h1>NEW DRINK</h1>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="assets/new-tea.png"></a>
+            </div>
+            <div class="col-2">
+                <h2>THAI TEA</h2>
+                <a href="" class="btn">Saiba mais</a> 
+            </div>
+        </div>
+    </div>
+    
+    <!------ Footer ------>
+    <div class="footer">
+        <div class="logo-footer">
+            <a href="index.html"><img src="assets/logo-k.png"></a>
+        </div>
+        <div class="footer-content">
+            <h2>KODA CAFE</h2>
+            <hr>
+            <p class="copyright">© 2026 Koda Cafe. Marina Faraco — All rights reserved.</p>
+        </div>
+    </div>
+
+<!------ JS For Toggle Menu ------>
+
+    <script>
+        var NavItems = document.getElementById("NavItems");
+
+        function menutoggle() {
+            if (NavItems.style.maxHeight == "0px") {
+                NavItems.style.maxHeight = "200px";
+            } else {
+                NavItems.style.maxHeight = "0px";
+            }
+        }
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 800) {
+                NavItems.style.maxHeight = "";
+            }
+        });  
+    </script>
+
+</body>
+</html>
+

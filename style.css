@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2794B3;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: bold;
+}
+
+.mobile-section {
+    display: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    position: relative;
+    background: #FF3131;
+
+}
+
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 80px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: clamp(14px, 2vw, 30px);
+}
+
+.logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 62px;
+    width: auto;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 20px;
+    padding-right: 15px;
+}
+
+.fa {
+    color: white;
+    font-size: clamp(16px, 2vw, 30px);;
+    cursor: pointer;
+}
+
+/* ------ Quadro - Cafés ------ */
+
+.container {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.background {
+    background: #FF3131;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+}
+
+.background-img{
+    width: 100%;
+    display: block;
+}
+
+.logo-background {
+    position: absolute;
+    top: 8%;
+    left: 39%;
+    width: 30%;
+    height: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding-left: 5%;
+}
+
+.row img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.col-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iced img {
+    height: 71vh;
+    width: auto;
+}
+
+.matcha img {
+    height: 75vh;
+    width: auto;
+}
+
+.caramel img {
+    height: 70vh;
+    width: auto;
+}
+
+.hover-text {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 55%;
+    transform: translateX(-50%);
+    background: #327487;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 150px;
+    z-index: 10;
+}
+
+.col-1:hover .hover-text {
+    display: block;
+}
+
+/* ------ Quadro - NOVO ------ */
+
+.new-container {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;;
+}
+
+.container-backgorund {
+    background: #FF3131;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.col-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col-2:first-child {
+    align-items: flex-end;
+    margin-right: 80px;
+    width: 300px;
+}
+
+.col-2:last-child {
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 300px;
+}
+
+.col-2 img {
+    height: clamp(150px, 20vw, 300px);
+    width: auto;
+}
+
+.col-2 img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.col-2 h1 {
+    font-size: clamp(40px, 6vw, 100px);
+    color: white;
+    text-align: right;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.col-2 h2 {
+    font-size: clamp(40px, 6vw, 100px);
+    font-style: italic;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.col-2 .btn {
+    background: #327487;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 90px;
+}
+
+.col-2 .btn:hover {
+    background: #2794B3;
+    transition: background 0.3s ease;
+}
+
+/* ------ Footer ------ */
+
+.footer {
+    display: flex;
+    align-items: stretch;
+    width: 100%;    
+    background: #327487;
+    color: #fff;
+    min-height: 120px;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    align-self: stretch;
+}
+
+.logo-footer img {
+    height: 60px;
+    width: auto;
+    margin-top: 50%;
+}
+
+.footer h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer hr {
+    width: 80%;
+    border-color: white;
+}
+
+.copyright {
+    margin-top: 10px;
+    color: white;
+    opacity: 0.8;
+}
+
+/* ------ Media Query - Menu------ */
+
+@media only screen and (max-width: 800px) {
+    nav {
+        position: static;
+        transform: none;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: #FF3131;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 20px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+/* ------ Media Query - Quadro ------ */
+
+@media only screen and (max-width: 1024px) and (min-width: 660px) {
+    .background-img {
+        width: 100%;
+    }
+
+    .logo-background {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        top: 10%;
+    }
+
+    .row {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .iced img {
+        height: 41vh;
+        width: auto;
+    }
+
+    .matcha img {
+        height: 45vh;
+        width: auto;
+    }
+
+    .caramel img {
+        height: 40vh;
+        width: auto;
+    }
+
+    .row img:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .col-1:hover .hover-text {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 660px) {
+    .container {
+        display: none;
+    }
+
+    .mobile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .mobile-background {
+        background: #FF3131;
+        width: 90%;
+        padding: 30px;
+        position: relative;
+    }
+
+    .mobile-background .background-img {
+        width: 100%;
+        display: block;
+    }
+
+    .mobile-background .logo-background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30%;
+        height: auto;
+    }
+
+    .mobile-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 90%;
+    }
+
+    .mobile-card {
+        display: flex;
+        background: #FF3131;
+        width: 100%;
+        align-items: center;
+        padding: 20px;  
+        border-radius: 10px;
+        gap: 15px;
+    }
+
+    .mobile-card-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1; 
+        gap: 10px;
+    }
+
+    .mobile-card-text {
+        padding: 10px 16px;
+        border-radius: 8px;
+        display: inline-block; 
+    }
+
+    .mobile-card-text p {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .mobile-btn {
+        display: inline-block;
+        background: #327487;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .mobile-btn:hover {
+        background: #2794B3;
+        transition: background 0.3s ease;
+    }
+
+    .iced img {
+        height: 41vh;
+        width: auto;
+    }
+
+    .matcha img {
+        height: 45vh;
+        width: auto;
+    }
+
+    .caramel img {
+        height: 40vh;
+        width: auto;
+    }
+}
+
+
+/* ------ Media Query - New ------ */
+@media only screen and (max-width: 1024px) and (min-width: 660px) {
+    .col-2:first-child {
+        margin-right: 6vw;
+        width: 20vw;
+    }
+
+    .col-2:last-child {
+        margin-left: 1vw;
+        width: 20vw;
+    }
+
+    .col-2 .btn {
+        margin-left: 1vw;
+        font-size: clamp(11px, 1.5vw, 12px);
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .container-backgorund {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .col-2 h1 {
+        font-size: 35px; 
+    }
+}
+
+/* ------ Media Query - Footer ------ */
