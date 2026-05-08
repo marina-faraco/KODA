@@ -669,3 +669,75 @@ a {
     transition: background 0.3s ease;
     color: #D9D9D9;
 }
+
+/* ------ About Us ------ */
+
+.about-background {
+    background: #FF3131;
+    width: 93%;
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.esquerda h1 {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+
+.esquerda p {
+    color: white;
+    font-size: clamp(12px, 1.2vw, 16px);
+    line-height: 1.6;
+    margin-left: 50px;
+    margin-right: 100px;
+}
+
+.esquerda h3 {
+    color: white;
+    font-size: clamp(14px, 1.5vw, 20px);
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.about-background h2 {
+    position: absolute;
+    bottom: 15px;
+    color: white;
+    font-size: clamp(16px, 1.8vw, 24px);
+    width: 100%;
+    margin-left: 50px;
+}
+
+.direita {
+    flex: 0 0 auto;
+}
+
+.direita img {
+    height: 550px;
+    width: auto;
+    border-radius: 15px;
+}
+
+.about-background h2 {
+    position: absolute;
+    bottom: 15px;
+    color: white;
+    font-size: clamp(16px, 1.8vw, 24px);
+    width: 100%;
+    margin-left: 50px;
+}
