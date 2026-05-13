@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Koda | Web cafe</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+     
+    <!------ Navbar ------>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo-k-azul.png"></a>
+            </div>
+            <nav>
+                <ul id="NavItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="menu-icon" onclick="menutoggle()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!------ Quadro Carrinho ------>
+    <div class="container">   
+        <img class="background-img" src="assets/home-background.jpg">
+        <img class="xadrez" src="assets/xaderz.png">
+
+        <div class="cart-wrapper">
+            <!-- Entrega -->
+            <div class="entrega-section">
+                <img class="paper-bg" src="assets/paper-background.png">
+                <div class="entrega-content">
+                    <h1>ENTREGA</h1>
+                    <form id="entrega-form" class="delivery-form active">
+                        <button type="button" class="address-btn">Usar endereço atual</button>
+                        <label>ou digite novo endereço</label>
+                        <input type="text" placeholder="Rua, número" required>
+                        <input type="text" placeholder="Complemento" required>
+                    </form>
+
+                    <form id="retirada-form" class="delivery-form">
+                        <label>Nome do Cliente</label>
+                        <input type="text" placeholder="Digite seu nome" required>
+                    </form>
+                    <div class="confirmar-btn">
+                        <button >CONFIRMAR</button>
+                    </div>
+                    
+                    <div class="toggle">
+                        <button id="retirada"><span class="toggle-indicator"></span></button>
+                        <span class="toggle-label">RETIRADA</span>
+                    </div>
+
+                    <div id="retirada-popup" class="retirada-popup hidden">   
+                        <div class="retirada-popup">
+                            <h3>Nome para retirada</h3>
+                            <input type="text" id="nome-retirada" placeholder="Digite seu nome">
+                            <button onclick="confirmarRetirada()">ENVIAR</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        
+            <!-- Seção Pagamento -->
+            <div class="pagamento-section">
+                <img class="quadro-bg" src="assets/quadro.png">
+                <div class="pagamento-content">
+                    <div class="items-list">
+                        <h3>ITEMS</h3>
+                        <div id="cart-items">
+                            <!-- Items do carrinho (JS) -->
+                        </div>
+                        <div class="totais">
+                        <p>Subtotal: <span id="subtotal">R$ 0.00</span></p>
+                        <p>TOTAL: <span id="total">R$ 0.00</span></p>
+                    </div>
+                    </div>
+                    
+                    <div class="payment-btn">
+                        <div class="pix-btn">
+                            <button id="pix">PIX</button>
+                        </div>
+
+                        <div class="outro-btn">
+                            <button id="outro">OUTRO</button>
+                        </div>
+                    </div>
+
+                    <!-- QR Code PIX -->
+                    <div id="pix-qr" class="pix-qr hidden">
+                        <div class="popup-overlay" onclick="document.getElementById('pix-qr').classList.add('hidden')"></div>
+                        <div class="popup-box">
+                            <img src="assets/qr-code.png" alt="QR Code PIX">
+                        </div>
+                    </div>
+
+                    <div id="payment-message" class="payment-message hidden">
+                        <div class="popup-overlay" onclick="document.getElementById('payment-message').classList.add('hidden')"></div>
+                        <div class="popup-box">
+                            <p>A cobrança será realizada na hora da retirada/entrega</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!------ Footer ------>
+    <div class="footer">
+        <div class="logo-footer">
+            <a href="index.html"><img src="assets/logo-k.png"></a>
+        </div>
+        <div class="footer-content">
+            <h2>KODA CAFE</h2>
+            <hr>
+            <p class="copyright">© 2026 Koda Cafe. Marina Faraco — All rights reserved.</p>
+        </div>
+    </div>
+
+
+<!------ JS For Toggle Menu ------>
+
+    <script>
+        var NavItems = document.getElementById("NavItems");
+
+        function menutoggle() {
+            if (NavItems.style.maxHeight == "0px") {
+                NavItems.style.maxHeight = "200px";
+            } else {
+                NavItems.style.maxHeight = "0px";
+            }
+        }
+
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 800) {
+                NavItems.style.maxHeight = "";
+            }
+        });  
+    </script>
+
+    <!--- Retirada Pop-Up --->
+
+    <script>   
+        var modoRetirada = false;
+        var retiradaBtn = document.getElementById("retirada");
+
+        retiradaBtn.addEventListener("click", function() {
+            modoRetirada = !modoRetirada;
+
+            if (modoRetirada) {
+                retiradaBtn.style.background = "#327487";
+                retiradaBtn.querySelector(".toggle-indicator").style.opacity = "1";
+                document.querySelectorAll('#entrega-form input, #entrega-form button').forEach(function(el) {
+                    el.disabled = true;
+                    el.style.opacity = "0.4";
+                    el.style.cursor = "not-allowed";
+                });
+                document.getElementById("retirada-popup").classList.remove("hidden");
+            } else {
+                retiradaBtn.style.background = "#2794B3";
+                retiradaBtn.querySelector(".toggle-indicator").style.opacity = "0";
+                document.querySelectorAll('#entrega-form input, #entrega-form button').forEach(function(el) {
+                    el.disabled = false;
+                    el.style.opacity = "1";
+                    el.style.cursor = "pointer";
+                });
+            }
+        });
+
+        function confirmarRetirada() {
+            var nome = document.getElementById("nome-retirada").value;
+            if (nome.trim() === "") {
+                alert("Digite seu nome para continuar");
+                return;
+            }
+            document.getElementById("retirada-popup").classList.add("hidden");
+        }
+
+        document.getElementById("nome-retirada").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") confirmarRetirada();
+        });
+    </script>
+
+    <!--- Pagamento Pop-Up --->
+
+    <script>   
+        document.getElementById("pix").addEventListener("click", function() {
+            document.getElementById("pix-qr").classList.remove("hidden");
+            document.getElementById("payment-message").classList.add("hidden");
+        });
+
+        document.getElementById("outro").addEventListener("click", function() {
+            document.getElementById("payment-message").classList.remove("hidden");
+            document.getElementById("pix-qr").classList.add("hidden");
+        });
+
+    </script>
+
+
+</body>
+</html>

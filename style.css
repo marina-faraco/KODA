@@ -716,7 +716,7 @@ a {
 
 .about-background h2 {
     position: absolute;
-    bottom: 15px;
+    bottom: 50px;
     color: white;
     font-size: clamp(16px, 1.8vw, 24px);
     width: 100%;
@@ -733,11 +733,344 @@ a {
     border-radius: 15px;
 }
 
-.about-background h2 {
+/* ------ Cart Page ------ */
+
+.cart-wrapper {
     position: absolute;
-    bottom: 15px;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+}
+
+.xadrez {
+    position: absolute;
+    top: 118%;
+    right: 20px;
+    height: auto;
+    width: 62%;
+    z-index: 1;
+}
+
+    /* ------ Entrega ------ */
+
+.entrega-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-bg {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: auto;
+    z-index: -1;
+}
+
+.entrega-content {
+    margin-top: 110px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.entrega-content h1 {
+    color: #FF3131;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-left: 120px;
+}
+
+.delivery-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.delivery-form.active {
+    display: flex;
+}
+
+.delivery-form label {
+    color: #2794B3;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.delivery-form input {
+    width: 80%;
+    padding: 8px 12px;
+    border: 2px solid #2794B3;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.address-btn {
+    width: 80%;
+    padding: 8px 12px;
+    background: transparent;
+    color: #2794B3;
+    border: 2px solid #2794B3;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.confirmar-btn button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 90px;
+    width: 50%;
+    height: 40px;
+
+    background: #2794B3;
+    border-radius: 30px;
+    border: none;
+
     color: white;
-    font-size: clamp(16px, 1.8vw, 24px);
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.toggle {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 90px;
+    width: 50%;
+    height: 40px;
+    flex-shrink: 0;
+
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #2794B3;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.toggle button {
+    width: 40px;
+    height: auto;
+    margin: -1px;
+
+    border:  0 solid;
+    border-radius: 50%;
+    cursor: pointer;
+
+    background: #2794B3;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 0.2s, transform 0.1s;
+}
+
+.toggle-label {
+    flex: 1;
+    padding: 7px 60px;
+    color: #2794B3;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.toggle-indicator {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: transparent;
+    border: #D9D9D9 solid 2px;
+    display: block;
+    opacity: 0; 
+    transition: opacity 0.2s ease;
+}
+
+.address-btn:hover {
+    background: #D9D9D9;
+}
+
+.toggle button:hover {
+    background: #327487;
+}
+
+.confirmar-btn button:hover {
+    background: #327487;
+}
+
+.retirada-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-left: 50px;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.retirada-popup.hidden {
+    display: none;
+}
+
+.retirada-popup-content {
+    background: #327487;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.retirada-popup h3 {
+    color: white;
+    font-size: 20px;
+}
+
+.retirada-popup input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+}
+
+.retirada-popup button {
+    background: #FF3131;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    /* ------ Pagamento ------ */
+
+.pagamento-section {
+    flex: 1;
+    position: relative;
+}
+
+.quadro-bg {
+    position: absolute;
+    top: 96px;
+    right: 10px;
+    bottom: 0;
+    width: 120%;
+    height: auto;
+    z-index: -1;
+}
+
+.pagamento-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 70%;
+}
+
+.items-list {
+    padding: 20px;
+    color: #FF3131;
+    margin-top: 260px;
+}
+
+.items-list h3 {
+    font-size: 20px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+}
+
+#cart-items {
+    font-size: 12px;
+    color: #327487;
+}
+
+.payment-btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 220px;
+    margin-left: 90px;
+    width: 50%;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+.pix-btn button{
+    background: #2794B3;
+    border: none;
+    color: white;
+
+}
+
+.outro-btn button{
+    margin-top: 7px;
+    background: #fff;
+    border: 1px solid #2794B3;
+    color: #2794B3;
+}
+
+.pix-btn button:hover {
+    background: #327487;
+}
+
+.outro-btn button:hover {
+    background: #D9D9D9;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #327487;
+    padding: 30px;
+    border-radius: 15px;
+    z-index: 999;
+    text-align: center;
+    color: white;
+}
+
+.popup-box img {
+    height: 200px;
+    width: auto;
+}
+
+.popup-box p {
+    color: white;
+    font-size: 16px;
 }
