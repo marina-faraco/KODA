@@ -766,7 +766,7 @@ a {
 
 .paper-bg {
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 10px;
     right: 0;
     bottom: 0;
@@ -776,7 +776,7 @@ a {
 }
 
 .entrega-content {
-    margin-top: 110px;
+    margin-top: 90px;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -787,7 +787,7 @@ a {
     color: #FF3131;
     font-size: 40px;
     margin-bottom: 10px;
-    margin-left: 120px;
+    margin-left: 100px;
 }
 
 .delivery-form {
@@ -829,8 +829,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
-    margin-left: 90px;
+    margin-left: 60px;
     width: 50%;
     height: 40px;
 
@@ -849,8 +848,9 @@ a {
 .toggle {
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
-    margin-left: 90px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 60px;
     width: 50%;
     height: 40px;
     flex-shrink: 0;
@@ -865,7 +865,7 @@ a {
 
 .toggle button {
     width: 40px;
-    height: auto;
+    height: 40px;
     margin: -1px;
 
     border:  0 solid;
@@ -891,7 +891,7 @@ a {
 
 .toggle-indicator {
     width: 80%;
-    height: 80%;
+    height: auto;
     border-radius: 50%;
     background: transparent;
     border: #D9D9D9 solid 2px;
@@ -980,65 +980,90 @@ a {
 }
 
 .pagamento-content {
-    padding: 20px;
+    position: absolute;
+    top: 80px;
+    width: 48%;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    height: 70%;
 }
 
 .items-list {
-    padding: 20px;
     color: #FF3131;
-    margin-top: 260px;
+    margin-top: 220px;
+    flex: 1;
+    position: relative;
 }
 
 .items-list h3 {
     font-size: 20px;
-    margin-left: 70px;
-    margin-bottom: 10px;
+    margin-left: 110px;
+    margin-bottom: 20px;
 }
 
 #cart-items {
-    font-size: 12px;
-    color: #327487;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 0.7;
+    color: #2794B3;
+}
+
+.totais {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    border-top: 1px solid #FF3131;
+}
+
+.totais p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #FF3131;
+    margin-bottom: 2px;
+}
+
+.payment-btn {
+    position: absolute;
+    top: 550px; 
+    left: 50%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .payment-btn button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 220px;
-    margin-left: 90px;
-    width: 50%;
+    width: 100%;
     height: 40px;
     border-radius: 30px;
     font-size: 16px;
     font-weight: bold;
-    
     cursor: pointer;
     transition: opacity 0.3s ease, transform 0.2s ease;
 }
+
 .pix-btn button{
-    background: #2794B3;
-    border: none;
-    color: white;
+    background: #fff;
+    border: 1px solid #2794B3;
+    color: #2794B3;
 
 }
 
 .outro-btn button{
+    background: #2794B3;
+    border: none;
+    color: white;
     margin-top: 7px;
-    background: #fff;
-    border: 1px solid #2794B3;
-    color: #2794B3;
 }
 
 .pix-btn button:hover {
-    background: #327487;
+    background: #D9D9D9;
 }
 
 .outro-btn button:hover {
-    background: #D9D9D9;
+    background: #327487;
 }
 
 .hidden {

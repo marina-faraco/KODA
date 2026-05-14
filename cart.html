@@ -53,23 +53,20 @@
                     <form id="entrega-form" class="delivery-form active">
                         <button type="button" class="address-btn">Usar endereço atual</button>
                         <label>ou digite novo endereço</label>
-                        <input type="text" placeholder="Rua, número" required>
+                        <input id="input-rua" type="text" placeholder="Rua, número" required list="sugestoes-rua">
+                        <datalist id="sugestoes-rua"></datalist>
                         <input type="text" placeholder="Complemento" required>
+                        <input type="text" placeholder="Seu nome">
                     </form>
 
                     <form id="retirada-form" class="delivery-form">
                         <label>Nome do Cliente</label>
                         <input type="text" placeholder="Digite seu nome" required>
                     </form>
-                    <div class="confirmar-btn">
-                        <button >CONFIRMAR</button>
-                    </div>
-                    
                     <div class="toggle">
                         <button id="retirada"><span class="toggle-indicator"></span></button>
                         <span class="toggle-label">RETIRADA</span>
                     </div>
-
                     <div id="retirada-popup" class="retirada-popup hidden">   
                         <div class="retirada-popup">
                             <h3>Nome para retirada</h3>
@@ -77,8 +74,17 @@
                             <button onclick="confirmarRetirada()">ENVIAR</button>
                         </div>
                     </div>
+                    <div class="confirmar-btn">
+                        <button >CONFIRMAR</button>
+                    </div>
 
                 </div>
+            </div>
+            <div id="confirmacao-popup" class="confirmacao-popup hidden">
+            <div class="popup-overlay" onclick="document.getElementById('confirmacao-popup').classList.add('hidden')"></div>
+            <div class="popup-box">
+                <p id="confirmacao-msg"></p>
+            </div>
             </div>
         
             <!-- Seção Pagamento -->
@@ -90,10 +96,10 @@
                         <div id="cart-items">
                             <!-- Items do carrinho (JS) -->
                         </div>
-                        <div class="totais">
+                    </div>    
+                    <div class="totais">
                         <p>Subtotal: <span id="subtotal">R$ 0.00</span></p>
                         <p>TOTAL: <span id="total">R$ 0.00</span></p>
-                    </div>
                     </div>
                     
                     <div class="payment-btn">
@@ -217,6 +223,141 @@
 
     </script>
 
+    <!--- Carrinho --->
+
+    <script>
+        function carregarCarrinho() {
+            var carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+            var cartItems = document.getElementById("cart-items");
+            var subtotalEl = document.getElementById("subtotal");
+            var totalEl = document.getElementById("total");
+
+            cartItems.innerHTML = "";
+
+            if (carrinho.length === 0) {
+                cartItems.innerHTML = "<p style='color:#2794B3'>Carrinho vazio</p>";
+                subtotalEl.textContent = "R$ 0.00";
+                totalEl.textContent = "R$ 0.00";
+                return;
+            }
+
+            var subtotal = 0;
+
+            carrinho.forEach(function(item, index) {
+                var itemTotal = item.preco * item.quantidade;
+                subtotal += itemTotal;
+
+                var div = document.createElement("div");
+                div.style.cssText = "display:flex; align-items:center; margin-bottom:5px; gap:4px;";
+                div.innerHTML = "<span style='flex:1'>" + item.nome + " (" + item.quantidade + "x)</span><span style='color:#2794B3; min-width:55px; text-align:left;'>R$ " + itemTotal.toFixed(2) + "</span><span style='cursor:pointer; color:#FF3131;' onclick='removerItem(" + index + ")'>✕</span>";
+                cartItems.appendChild(div);
+            });
+
+            subtotalEl.textContent = "R$ " + subtotal.toFixed(2);
+            totalEl.textContent = "R$ " + subtotal.toFixed(2);
+        }
+
+        function removerItem(index) {
+            var carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+            carrinho.splice(index, 1);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            carregarCarrinho();
+        }
+
+        carregarCarrinho();
+    </script>
+
+        <!--- Pegar endereço atual --->
+
+    <script>
+        document.querySelector(".address-btn").addEventListener("click", function() {
+            if (!navigator.geolocation) {
+                alert("Geolocalização não suportada pelo seu browser");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lon = position.coords.longitude;
+
+                fetch("https://nominatim.openstreetmap.org/reverse?format=json&lat=" + lat + "&lon=" + lon)
+                    .then(function(response) { return response.json(); })
+                    .then(function(data) {
+                        var addr = data.address;
+
+                        var rua = (addr.road || "") + (addr.house_number ? ", " + addr.house_number : "");
+                        var complemento = [addr.suburb, addr.city_district, addr.city ||  addr.town, addr.village].filter(Boolean).join(", ");
+
+                        document.querySelector('#entrega-form input[placeholder="Rua, número"]').value = rua;
+                        document.querySelector('#entrega-form input[placeholder="Complemento"]').value = complemento;
+                    })
+                    .catch(function() {
+                        alert("Não foi possível buscar o endereço");
+                    });
+
+            }, function() {
+                alert("Permissão de localização negada");
+            });
+        });
+    </script>
+    
+    <!--- Sugerir endereço --->
+
+    <script>
+        var inputRua = document.getElementById("input-rua");
+        var sugestoesRua = document.getElementById("sugestoes-rua");
+        var timer;
+
+        inputRua.addEventListener("input", function() {
+            clearTimeout(timer);
+            var texto = inputRua.value;
+
+            if (texto.length < 4) {
+                sugestoesRua.innerHTML = "";
+                return;
+            }
+
+            timer = setTimeout(function() {
+                fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(texto) + "&addressdetails=1&limit=5")
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        sugestoesRua.innerHTML = "";
+                        data.forEach(function(item) {
+                            var option = document.createElement("option");
+                            option.value = item.display_name;
+                            sugestoesRua.appendChild(option);
+                        });
+                    });
+            }, 500);
+        });
+    </script>
+
+    <script>
+        document.querySelector(".confirmar-btn button").addEventListener("click", function() {
+    
+        var nome = modoRetirada
+            ? document.getElementById("nome-retirada").value
+            : document.querySelector('#entrega-form input[placeholder="Seu nome"]').value;
+
+        document.querySelectorAll('#entrega-form input, #entrega-form button, #retirada-form input').forEach(function(el) {
+            el.disabled = true;
+            el.style.opacity = "0.4";
+            el.style.cursor = "not-allowed";
+        });
+
+        document.getElementById("retirada").disabled = true;
+        document.getElementById("retirada").style.opacity = "0.4";
+        document.getElementById("retirada").style.cursor = "not-allowed";
+
+        document.querySelector(".confirmar-btn button").disabled = true;
+        document.querySelector(".confirmar-btn button").style.opacity = "0.4";
+        document.querySelector(".confirmar-btn button").style.cursor = "not-allowed";
+
+        var msg = nome.trim() !== "" ? "Até daqui a pouco, " + nome + "! :)" : "Até daqui a pouco! :)";
+        document.getElementById("confirmacao-msg").textContent = msg;
+        document.getElementById("confirmacao-popup").classList.remove("hidden");
+    });
+    </script>
 
 </body>
 </html>
