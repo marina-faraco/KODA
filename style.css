@@ -672,6 +672,13 @@ a {
 
 /* ------ About Us ------ */
 
+.about-container {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
 .about-background {
     background: #FF3131;
     width: 93%;
@@ -691,18 +698,18 @@ a {
 }
 
 .esquerda h1 {
-    font-size: 60px;
+    font-size: clamp(24px, 4vw, 60px);
     color: white;
     margin-bottom: 10px;
-    margin-left: 150px;
+    margin-left: clamp(20px, 8vw, 150px);
 }
 
 .esquerda p {
     color: white;
     font-size: clamp(12px, 1.2vw, 16px);
     line-height: 1.6;
-    margin-left: 50px;
-    margin-right: 100px;
+    margin-left: clamp(10px, 3vw, 50px);
+    margin-right: clamp(10px, 5vw, 100px);
 }
 
 .esquerda h3 {
@@ -711,16 +718,16 @@ a {
     margin-top: 10px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 50px;
+    margin-left: clamp(10px, 3vw, 50px);
 }
 
 .about-background h2 {
     position: absolute;
-    bottom: 50px;
+    bottom: 10px;
     color: white;
     font-size: clamp(16px, 1.8vw, 24px);
     width: 100%;
-    margin-left: 50px;
+    margin-left: clamp(10px, 3vw, 50px);
 }
 
 .direita {
@@ -728,9 +735,47 @@ a {
 }
 
 .direita img {
-    height: 550px;
+    height: clamp(200px, 35vw, 550px);
     width: auto;
     border-radius: 15px;
+}
+
+@media only screen and (max-width: 660px) {
+    .about-background {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+        padding-bottom: 60px;
+    }
+
+    .esquerda h1 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .esquerda p {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .esquerda h3 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .about-background h2 {
+        margin-left: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .direita img {
+        height: clamp(150px, 70vw, 300px);
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 /* ------ Cart Page ------ */
