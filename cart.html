@@ -39,12 +39,13 @@
         </div>
     </div>
 
-<!------ Quadro Carrinho ------>
-    <div class="container">   
-        <img class="background-img" src="assets/home-background.jpg">
+<!------ Carrinho ------>
+    <div class="container-cart">   
+        <img class="background-cart-img" src="assets/home-background.jpg">
         <img class="xadrez" src="assets/xaderz.png">
 
         <div class="cart-wrapper">
+
             <!-- Entrega -->
             <div class="entrega-section">
                 <img class="paper-bg" src="assets/paper-background.png">
@@ -63,10 +64,12 @@
                         <label>Nome do Cliente</label>
                         <input type="text" placeholder="Digite seu nome" required>
                     </form>
+
                     <div class="toggle">
                         <button id="retirada"><span class="toggle-indicator"></span></button>
                         <span class="toggle-label">RETIRADA</span>
                     </div>
+
                     <div id="retirada-popup" class="retirada-popup hidden">   
                         <div class="retirada-popup">
                             <h3>Nome para retirada</h3>
@@ -74,61 +77,59 @@
                             <button onclick="confirmarRetirada()">ENVIAR</button>
                         </div>
                     </div>
-                    <div class="confirmar-btn">
-                        <button >CONFIRMAR</button>
-                    </div>
 
+                    <div class="confirmar-btn">
+                        <button>CONFIRMAR</button>
+                    </div>
                 </div>
             </div>
+
             <div id="confirmacao-popup" class="confirmacao-popup hidden">
-            <div class="popup-overlay" onclick="document.getElementById('confirmacao-popup').classList.add('hidden')"></div>
-            <div class="popup-box">
-                <p id="confirmacao-msg"></p>
+                <div class="popup-overlay" onclick="document.getElementById('confirmacao-popup').classList.add('hidden')"></div>
+                <div class="popup-box">
+                    <p id="confirmacao-msg"></p>
+                </div>
             </div>
-            </div>
-        
-            <!-- Seção Pagamento -->
+
+            <!-- Pagamento -->
             <div class="pagamento-section">
                 <img class="quadro-bg" src="assets/quadro.png">
+
                 <div class="pagamento-content">
                     <div class="items-list">
-                        <h3>ITEMS</h3>
-                        <div id="cart-items">
-                            <!-- Items do carrinho (JS) -->
-                        </div>
+                        <h3>ITENS</h3>
+                        <div id="cart-items"></div>
                     </div>    
                     <div class="totais">
                         <p>Subtotal: <span id="subtotal">R$ 0.00</span></p>
                         <p>TOTAL: <span id="total">R$ 0.00</span></p>
                     </div>
-                    
-                    <div class="payment-btn">
-                        <div class="pix-btn">
-                            <button id="pix">PIX</button>
-                        </div>
+                </div>
 
-                        <div class="outro-btn">
-                            <button id="outro">OUTRO</button>
-                        </div>
+                <div class="payment-btn">
+                    <div class="pix-btn">
+                        <button id="pix">PIX</button>
                     </div>
-
-                    <!-- QR Code PIX -->
-                    <div id="pix-qr" class="pix-qr hidden">
-                        <div class="popup-overlay" onclick="document.getElementById('pix-qr').classList.add('hidden')"></div>
-                        <div class="popup-box">
-                            <img src="assets/qr-code.png" alt="QR Code PIX">
-                        </div>
+                    <div class="outro-btn">
+                        <button id="outro">OUTRO</button>
                     </div>
+                </div>
 
-                    <div id="payment-message" class="payment-message hidden">
-                        <div class="popup-overlay" onclick="document.getElementById('payment-message').classList.add('hidden')"></div>
-                        <div class="popup-box">
-                            <p>A cobrança será realizada na hora da retirada/entrega</p>
-                        </div>
+                <div id="pix-qr" class="pix-qr hidden">
+                    <div class="popup-overlay" onclick="document.getElementById('pix-qr').classList.add('hidden')"></div>
+                    <div class="popup-box">
+                        <img src="assets/qr-code.png" alt="QR Code PIX">
                     </div>
+                </div>
 
+                <div id="payment-message" class="payment-message hidden">
+                    <div class="popup-overlay" onclick="document.getElementById('payment-message').classList.add('hidden')"></div>
+                    <div class="popup-box">
+                        <p>A cobrança será realizada na hora da retirada/entrega</p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
