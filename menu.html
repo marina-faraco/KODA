@@ -62,7 +62,7 @@
                 <img src="assets/thai-tea.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Thai Tea" data-preco="21" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 21</a>
@@ -73,7 +73,7 @@
                 <img src="assets/matcha-latte.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Matcha Latte" data-preco="18" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 18</a>
@@ -84,7 +84,7 @@
                 <img src="assets/caramel-latte.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Caramel Macchiato" data-preco="18" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 18</a>
@@ -95,7 +95,7 @@
                 <img src="assets/iced-milk-coffee.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Iced Latte" data-preco="16" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 16</a>
@@ -106,7 +106,7 @@
                 <img src="assets/iced-orange-americano.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Orange Americano" data-preco="23" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 23</a>
@@ -117,7 +117,7 @@
                 <img src="assets/espresso-tonic.png">
                 <div class="quantity">
                     <span class="qty-btn">-</span>
-                    <span class="qty-num">1</span>
+                    <span class="qty-num">0</span>
                     <span class="qty-btn">+</span>
                 </div>
                 <a class="cart-btn" data-nome="Espresso Tonic" data-preco="23" onclick="adicionarAoCarrinho(this)">ADICIONAR - $ 23</a>
@@ -157,6 +157,7 @@
         });  
     </script>
 
+<!------ Mudar valor quantidade ------>
     <script>
         document.querySelectorAll('.menu-card').forEach(function(card) {
             var qtyNum = card.querySelector('.qty-num');
@@ -177,6 +178,7 @@
         });
     </script>
 
+<!------ Adicionar no carrinho ------>
     <script>
         function adicionarAoCarrinho(btn) {
             var nome = btn.getAttribute("data-nome");
@@ -188,7 +190,12 @@
             var itemExistente = carrinho.find(function(item) { return item.nome === nome; });
 
             if (itemExistente) {
-                itemExistente.quantidade += quantidade;
+                if (quantidade == 0) {
+                    return
+                }
+                else {
+                    itemExistente.quantidade += quantidade;
+                }
             } else {
                 carrinho.push({ nome: nome, preco: preco, quantidade: quantidade });
             }
