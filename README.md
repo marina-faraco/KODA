@@ -15,15 +15,17 @@ O design de todas as páginas foi prototipado no **Figma** antes da implementaç
 ## 🚀 Funcionalidades
 
 ### 🏠 Home Page (`index.html`)
-- Apresentação da marca KODA CAFE
 - Seção de **pedidos mais populares**
 - Seção de **novidades** do cardápio
-- Informações institucionais sobre o café
 
 ### 📖 Menu (`menu.html`)
+- Seção de **pedido favorito**
 - Listagem completa de todos os produtos
 - Exibição de **preços** e **descrição** de cada item
 - Organização por categorias
+
+### 🏠 About (`about.html`)
+- Apresentação da marca KODA CAFE
 
 ### 🛒 Carrinho
 - Ícone de carrinho acessível em todas as páginas
@@ -59,13 +61,17 @@ koda-cafe/
 
 │
 ├── index.html          # Home page
+├── menu.html           # Cardápio
+├── about.html          # Sobre a cafeteria
+├── cart.html           # Carrinho
 ├── style.css           # Estilo
+├── README.md
 ---
 
 ## 💡 O que este projeto demonstra
 
 - Estruturação semântica com **HTML5**
-- Criação de **layouts responsivos** com CSS (Flexbox/Grid)
+- Criação de **layouts responsivos** com CSS
 - **Manipulação do DOM** com JavaScript puro
 - Gerenciamento de **estado do carrinho** sem frameworks
 - **Componentização mental** de UI antes de usar frameworks
@@ -79,11 +85,11 @@ koda-cafe/
 🚧 **Em desenvolvimento**
 
 - [x] Design no Figma
-- [ ] Estrutura HTML das páginas
-- [ ] Estilização CSS
-- [ ] Lógica do carrinho com JavaScript
-- [ ] Fluxo de checkout (retirada / delivery)
-- [ ] Responsividade mobile
+- [x] Estrutura HTML das páginas
+- [x] Estilização CSS
+- [x] Lógica do carrinho com JavaScript
+- [x] Fluxo de checkout (retirada / delivery)
+- [x] Responsividade mobile
 
 ---
 
