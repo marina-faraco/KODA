@@ -51,14 +51,14 @@ O design de todas as páginas foi prototipado no **Figma** antes da implementaç
 
 O layout foi inteiramente projetado no Figma, passando pelas etapas de wireframe e protótipo de alta fidelidade antes da codificação. Isso permitiu validar a experiência do usuário e a identidade visual da marca antes de qualquer linha de código.
 
-> 🔗 [Acessar protótipo no Figma](#) *()*
+> 🔗 [Acessar protótipo no Figma](https://www.figma.com/design/Qgz8MU5cYXsGwkKH2tEDH3/KODA?m=auto&t=0yZ1r1qbKpK5PodV-6) 
 
 ---
 
 ## 📁 Estrutura de Arquivos
 
 koda-cafe/
-
+```
 │
 ├── index.html          # Home page
 ├── menu.html           # Cardápio
@@ -66,6 +66,7 @@ koda-cafe/
 ├── cart.html           # Carrinho
 ├── style.css           # Estilo
 ├── README.md
+```
 ---
 
 ## 💡 O que este projeto demonstra
@@ -97,8 +98,8 @@ koda-cafe/
 
 Feito por **Marina Faraco**
 
-[![LinkedIn](https://www.linkedin.com/in/marina-faraco/)](#)
-[![GitHub](https://github.com/marina-faraco)](#)
+[![LinkedIn](https://www.linkedin.com/in/marina-faraco/)]
+[![GitHub](https://github.com/marina-faraco)]
 
 ---
 
