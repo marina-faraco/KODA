@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light only;
+}
+
 body {
     background: #2794B3;
     font-family: 'Poppins', sans-serif;
@@ -24,7 +28,7 @@ body {
     height: 50px;
     position: relative;
     background: #FF3131;
-
+    min-height: 50px;
 }
 
 nav {
@@ -51,13 +55,18 @@ a {
 }
 
 .logo {
-    height: 100%;
     display: flex;
     align-items: center;
 }
 
+.logo a {
+    display: flex;
+    align-items: center;
+    font-size: 0;
+}
+
 .logo img {
-    height: 62px;
+    height: 50px;
     width: auto;
 }
 
@@ -255,25 +264,26 @@ a {
     width: 100%;    
     background: #327487;
     color: #fff;
-    min-height: 120px;
+    min-height: clamp(80px, 10vw, 120px);
 }
 
 .logo-footer {
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding:  0 clamp(10px, 2vw, 20px);
     align-self: stretch;
 }
 
 .logo-footer img {
-    height: 60px;
+    height: clamp(30px, 5vw, 60px);
     width: auto;
-    margin-top: 50%;
+    margin-top: 0;
 }
 
 .footer h2 {
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: clamp(5px, 1vw, 10px);
+    font-size: clamp(12px, 2vw, 20px);
 }
 
 .footer-content {
@@ -291,9 +301,10 @@ a {
 }
 
 .copyright {
-    margin-top: 10px;
+    margin-top: clamp(5px, 1vw, 10px);
     color: white;
     opacity: 0.8;
+    font-size: clamp(10px, 1.2vw, 14px);
 }
 
 /* ------ Media Query - Menu------ */
@@ -477,14 +488,14 @@ a {
 }
 
 .fav-text h1 {
-    font-size: clamp(30px, 6vw, 90px);
+    font-size: clamp(25px, 6vw, 90px);
     color: white;
     line-height: 1.1;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .fav-text h2 {
-    font-size: clamp(18px, 4vw, 50px);
+    font-size: clamp(16px, 4vw, 50px);
     font-style: italic;
     color: #FF3131;
     margin: 0 clamp(20px, 10vw, 200px);
@@ -493,7 +504,7 @@ a {
 .fav-text .btn {
     background: #327487;
     color: white;
-    padding: 10px 20px;
+    padding: 7px 20px;
     border-radius: 20px;
     font-size: clamp(10px, 1.5vw, 16px);
 }
