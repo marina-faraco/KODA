@@ -16,7 +16,7 @@ O design de todas as páginas foi prototipado no Figma antes da implementação,
 - Seção de pedidos mais populares
 - Seção de novidades do cardápio
 
-![Tela inicial](docs/images/home.jpg)
+![Tela inicial](docs/imagens/home.jpg)
 
 ### 📖 Menu (`menu.html`)
 - Seção de pedido favorito
@@ -24,12 +24,12 @@ O design de todas as páginas foi prototipado no Figma antes da implementação,
 - Exibição de preços e descrição de cada item
 - Organização por categorias
 
-![Tela do cardápio](docs/images/menu.jpg)
+![Tela do cardápio](docs/imagens/menu.jpg)
 
 ### 🏠 About (`about.html`)
 - Apresentação da marca KODA CAFE
 
-![Tela sobre o Koda cafe](docs/images/about.jpg)
+![Tela sobre o Koda cafe](docs/imagens/about.jpg)
 
 ### 🛒 Carrinho e Checkout
 - Ícone de carrinho acessível em todas as páginas
