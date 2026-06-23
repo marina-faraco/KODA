@@ -40,7 +40,7 @@ O design de todas as páginas foi prototipado no Figma antes da implementação,
 - Resumo do pedido antes da finalização
 - Geração de QR code simbólico ao final do checkout — um toque extra de polimento que reforça a experiência de e-commerce real, mantendo a transparência de que se trata de um projeto conceitual
 
-<!-- 📸: screenshot ou GIF -->
+    ![Tela do carrinho](docs/gifs/cart.gif)
 
 ## 🛠️ Tecnologias Utilizadas
 
