@@ -2,7 +2,7 @@
 
 Site fictício de cafeteria desenvolvido como projeto de portfólio, com foco em front-end moderno, experiência do usuário e design responsivo.
 
-<!-- 📸: capa ou GIF-->
+![Koda Cafe](docs/gifs/home.gif)
 
 ## 📋 Sobre o Projeto
 
